@@ -1,3 +1,8 @@
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<!-- Thêm dòng này -->
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -19,41 +24,39 @@
                 <div class="col-md-6 col-12 mx-auto">
                     <h3>Create user</h3>
                     <hr />
-                    <form>
+                    <form:form method="post" action="/admin/user/create"
+                        modelAttribute="newUser">
                         <div class="mb-3">
                             <label class="form-label">Email :</label>
-                            <input type="email" class="form-control">
+                            <form:input path="email" type="email"
+                                class="form-control" />
                         </div>
                         <div class="mb-3">
-                            <label for="password"
-                                class="form-label">Password</label>
-                            <input type="password" class="form-control"
-                                id="exampleInputPassword1">
+                            <label class="form-label">Password:</label>
+                            <form:input path="password" type="password"
+                                class="form-control" />
                         </div>
                         <div class="mb-3">
-                            <label for="phone" class="form-label">Phone number
-                                :</label>
-                            <input type="text" class="form-control">
+                            <label class="form-label">Phone number :</label>
+                            <form:input path="phone" type="text"
+                                class="form-control" />
                         </div>
                         <div class="mb-3">
-                            <label for="fullname" class="form-label">Full
-                                name :</label>
-                            <input type="text" class="form-control"
-                                required>
+                            <label class="form-label">Full name :</label>
+                            <form:input path="fullName" type="text"
+                                class="form-control" />
                         </div>
                         <div class="mb-3">
-                            <label for="address" class="form-label">Address
-                                :</label>
-                            <input type="text" class="form-control"
-                                required>
+                            <label class="form-label">Address :</label>
+                            <form:input path="address" type="text"
+                                class="form-control" required="true" />
                         </div>
                         <button type="submit"
                             class="btn btn-primary">Create</button>
-                    </form>
+                    </form:form>
+
                 </div>
             </div>
-
         </div>
-
     </body>
 </html>
